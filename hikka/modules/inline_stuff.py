@@ -108,12 +108,3 @@ class InlineStuff(loader.Module):
         self._db.set("hikka.inline", "custom_bot", args)
         self._db.set("hikka.inline", "bot_token", None)
         await utils.answer(message, self.strings("bot_updated"))
-
-    async def aiogram_watcher(self, message: BotInlineMessage):
-        if message.text != "/start":
-            return
-
-        await message.answer_photo(
-            "https://github.com/hikariatama/assets/raw/master/hikka_banner.png",
-            caption=self.strings("this_is_hikka"),
-        )
